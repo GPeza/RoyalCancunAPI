@@ -13,6 +13,7 @@ namespace RoyalCancunAPI.Controllers
         public MySQLController()
         {
             connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=root");
+        }
         private void startConnection()
         {
             try
