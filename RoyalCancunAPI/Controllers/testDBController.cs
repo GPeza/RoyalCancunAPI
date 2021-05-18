@@ -3,17 +3,16 @@ using System.Web.Http;
 
 namespace RoyalCancunAPI.Controllers
 {
-    public class CancelReservationController : ApiController
+    public class testDBController : ApiController
     {
         [HttpPost]
-        public IHttpActionResult Post(RoyalCancunAPI.Models.Request.Reservation r)
+        public IHttpActionResult Post()
         {
             try
             {
                 MySQLController my = new MySQLController();
-                string cadena = "";
-                cadena = my.cancelReservation(r.idRoom, r.idUser, r.idReservation);
-               
+                string cadena = my.testConnection();
+
                 return Ok(cadena);
             }
             catch (Exception e)

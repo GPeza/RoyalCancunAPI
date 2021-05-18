@@ -3,7 +3,7 @@ using System.Web.Http;
 
 namespace RoyalCancunAPI.Controllers
 {
-    public class GetOcupiedDatesController : ApiController
+    public class GetUserReservationsController : ApiController
     {
         [HttpPost]
         public IHttpActionResult Post(RoyalCancunAPI.Models.Request.Reservation r)
@@ -11,11 +11,7 @@ namespace RoyalCancunAPI.Controllers
             try
             {
                 MySQLController my = new MySQLController();
-                string cadena = "";
-                foreach (string date in my.getOcupiedDates(r.idReservation,r.startDate)) {
-                    cadena += date + ",";
-                }
-                cadena = cadena.Remove(cadena.Length - 1, 1);
+                string cadena = my.geUserReservations(r.idUser);
                 return Ok(cadena);
             }
             catch (Exception e)

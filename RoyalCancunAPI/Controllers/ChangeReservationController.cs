@@ -12,7 +12,7 @@ namespace RoyalCancunAPI.Controllers
             {
                 MySQLController my = new MySQLController();
                 string cadena = "";
-                string date = my.changeReservation(r.idReservation, r.startDate, r.endDate);
+                cadena = my.changeReservation(r.idRoom, r.idUser,r.idReservation, r.startDate, r.endDate);
 
                 return Ok(cadena);
             }

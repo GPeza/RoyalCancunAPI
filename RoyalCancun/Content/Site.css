@@ -1,0 +1,92 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+
+#myReservationTable {
+    margin: 20px;
+}
+
+#myReservationTable th {
+    width: 35%;
+    min-width: 100px;
+    text-align: center;
+    background-color: #CAECF8;
+    font-size: 20px;
+}
+
+#myReservationTable td {
+    text-align: center;
+}
+
+#myReservationTable tr {
+    height: 70px;
+}
+
+#myReservationTable .trWhite {
+    background-color: #FFF;
+}
+
+#myReservationTable .trColor {
+    background-color: #DEEDF8;
+}
+.modalHidden {
+    display:none;
+}
+.modalBackground {
+    background-color: #333;
+    opacity:0.6;
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:1049;
+    cursor:pointer;
+}
+.modalContainer {
+    background-color: #FFF;
+    position: absolute;
+    width: 600px;
+    border-radius: 10px;
+    z-index: 1050;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centered {
+    text-align:center;
+}
+.btn {
+    width:100%
+}
+.noReservationsTable {
+    font-size: 20px;
+    font-weight:bold;
+}
+.cancelledReservationMessage {
+    color: #75001B;
+    text-decoration:underline;
+    cursor: not-allowed;
+}

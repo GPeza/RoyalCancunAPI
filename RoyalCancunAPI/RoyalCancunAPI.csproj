@@ -196,15 +196,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Business\Functions.cs" />
     <Compile Include="Controllers\CancelReservationController.cs" />
     <Compile Include="Controllers\ChangeReservationController.cs" />
     <Compile Include="Controllers\CreateReservationController.cs" />
     <Compile Include="Controllers\CreateUserController.cs" />
     <Compile Include="Controllers\GetOcupiedDatesController.cs" />
+    <Compile Include="Controllers\GetUserReservationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginAttemptController.cs" />
     <Compile Include="Controllers\MySQLController.cs" />
     <Compile Include="Controllers\RoyalCancunController.cs" />
+    <Compile Include="Controllers\testDBController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,8 +275,10 @@
     <Folder Include="Views\CreateReservation\" />
     <Folder Include="Views\CreateUser\" />
     <Folder Include="Views\getOcupied\" />
+    <Folder Include="Views\GetUserReservations\" />
     <Folder Include="Views\LoginAttempt\" />
     <Folder Include="Views\RoyalCancun\" />
+    <Folder Include="Views\testDB\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
