@@ -200,20 +200,29 @@ namespace RoyalCancunAPI.Controllers
             }
             return response;
         }
-        public string createUser(string userName, string name, string lastname, string phone, string pw)
+        public string createUser(string userName, string name, string lastname, string pw)
         {
             string response = "";
             try
             {
                 startConnection();
-                var stm = string.Format("CALL u434370356_royal_cancun.createUser({0},{1},{2},{3},{4});", userName, name, lastname, phone, pw);
+                var stm = string.Format("CALL u434370356_royal_cancun.createUser(\"{0}\",\"{1}\",\"{2}\",\"{3}\");", userName, name, lastname, pw);
                 var cmd = new MySqlCommand(stm, connection);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    response += rdr.GetInt32(0);
-                    response += rdr.GetString(1);
+                    if (rdr.GetInt32(0) == 1)
+                    {
+                        response += rdr.GetInt32(0) + ";";
+                        response += rdr.GetInt32(1) + ";";
+                        response += rdr.GetString(2);
+                    }
+                    else
+                    {
+                        response += rdr.GetInt32(0) + ";";
+                        response += rdr.GetString(1);
+                    }
                 }
                 endConnection();
             }
@@ -230,14 +239,23 @@ namespace RoyalCancunAPI.Controllers
             try
             {
                 startConnection();
-                var stm = string.Format("CALL u434370356_royal_cancun.loginAttempt({0},{1});", userName, pw);
+                var stm = string.Format("CALL u434370356_royal_cancun.loginAttempt(\"{0}\",\"{1}\");", userName, pw);
                 var cmd = new MySqlCommand(stm, connection);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    response += rdr.GetInt32(0);
-                    response += rdr.GetString(1);
+                    if (rdr.GetInt32(0) == 1)
+                    {
+                        response += rdr.GetInt32(0) + ";";
+                        response += rdr.GetInt32(1) + ";";
+                        response += rdr.GetString(2) + ";";
+                        response += rdr.GetString(3) + ";";
+                        response += rdr.GetString(4);
+                    }
+                    else {
+                        response += rdr.GetInt32(0);
+                    }
                 }
                 endConnection();
             }

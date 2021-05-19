@@ -15,22 +15,6 @@ namespace RoyalCancun.Controllers
 
         private HttpClient httpClient;
 
-        public string LoginAttempt(string username, string pw)
-        {
-            string function = string.Format("{0}Login?username={1}&&pw={2}", url, username, pw);
-            string result = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(function);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                result = reader.ReadToEnd();
-            }
-            return result;
-        }
-
         public async Task<string> GetOcupiedDates(int idReservation, string date)
         {
             using (var httpClient = new HttpClient())
@@ -138,6 +122,51 @@ namespace RoyalCancun.Controllers
                 var content = new FormUrlEncodedContent(values);
 
                 var uri = string.Format("{0}ChangeReservation", url);
+
+                var response = await httpClient.PostAsync(uri, content).ConfigureAwait(continueOnCapturedContext: false);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                return responseString;
+            }
+        }
+
+        public async Task<string> LoginAttempt(string username, string pw)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                    { "username", username },
+                    { "pw", pw }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                var uri = string.Format("{0}LoginAttempt", url);
+
+                var response = await httpClient.PostAsync(uri, content).ConfigureAwait(continueOnCapturedContext: false);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                return responseString;
+            }
+        }
+        public async Task<string> SignUpUser(string username, string name, string lastName,string pw)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                    { "username", username },
+                    { "name", name },
+                    { "lastName", lastName },
+                    { "pw", pw }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                var uri = string.Format("{0}CreateUser", url);
 
                 var response = await httpClient.PostAsync(uri, content).ConfigureAwait(continueOnCapturedContext: false);
 

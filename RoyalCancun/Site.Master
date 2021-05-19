@@ -45,15 +45,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Royal Cancún Hotel</a>
+                    <a class="navbar-brand" runat="server" href="~/"><img src="res/Logo/Logo_RC_web.png" alt="Royal Cancún Hotel" id="Nav_imgLogo"/></a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" href="~/ManageReservations">Reservations</a></li>
+                    <ul class="nav navbar-nav" id="navbarOptions">
+                        
                     </ul>
                 </div>
+                <div id="userData"></div>
             </div>
         </div>
         <div class="container body-content">
@@ -66,5 +65,42 @@
         </div>
 
     </form>
+    <script>
+        $(function () {
+            GetUserData();
+        });
+
+        function GetUserData() {
+            $.ajax({
+                type: 'POST',
+                url: 'Login.aspx/GetUserData',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (response) {
+                    var res = response.d.split(';');
+                    if (res[0] == 1) {
+                        $('#userData').empty();
+                        $('#navbarOptions').empty();
+                        var html = "";
+                        html += '<li><a runat="server" href="~/ManageReservations">Reservations</a></li>';
+                        html += '<li><a runat="server" href="~/CloseSession">Logout</a></li>';
+                        $('#navbarOptions').append(html);
+                        var html = "<span>Wellcome " + res[3] + " " + res[4] + " (" + res[2] + ")</span>";
+                        $('#userData').append(html);
+                    } else {
+                        $('#userData').empty();
+                        $('#navbarOptions').empty();
+                        var html = "";
+                        html += '<li><a runat="server" href="~/Login">Login/Register</a></li>';
+                        $('#navbarOptions').append(html);
+                    }
+                },
+                error: function (error) {
+                    alert(error.d);
+                }
+            });
+        }
+
+    </script>
 </body>
 </html>

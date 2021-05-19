@@ -166,10 +166,28 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="CloseSession.aspx" />
+    <Content Include="res\Fonts\Libre_Baskerville\LibreBaskerville-Bold.ttf" />
+    <Content Include="res\Fonts\Libre_Baskerville\LibreBaskerville-Italic.ttf" />
+    <Content Include="res\Fonts\Libre_Baskerville\LibreBaskerville-Regular.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Login.aspx" />
     <Content Include="ManageReservations.aspx" />
+    <Content Include="res\Fonts\Libre_Baskerville\OFL.txt" />
+    <Content Include="res\imgRoyal\homeBackground.png" />
+    <Content Include="res\imgRoyal\room1.jpg" />
+    <Content Include="res\imgRoyal\room2.jpg" />
+    <Content Include="res\imgRoyal\room3.jpg" />
+    <Content Include="res\imgRoyal\room4.jpg" />
+    <Content Include="res\imgRoyal\room5.jpg" />
+    <Content Include="res\Logo\Logo_RC_black-grey.png" />
+    <Content Include="res\Logo\Logo_RC_grey.png" />
+    <Content Include="res\Logo\Logo_RC_black.png" />
+    <Content Include="res\Logo\Logo_RC_web.png" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="UserControls\Login\LoginForm.ascx" />
+    <Content Include="UserControls\Login\SignUp.ascx" />
     <Content Include="UserControls\ReservationManagement\ChangeReservation.ascx" />
     <Content Include="UserControls\ReservationManagement\MyReservations.ascx" />
     <Content Include="UserControls\ReservationManagement\PlaceReservation.ascx" />
@@ -236,6 +254,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageReservations.aspx.cs">
       <DependentUpon>ManageReservations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,6 +270,20 @@
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Login\LoginForm.ascx.cs">
+      <DependentUpon>LoginForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Login\LoginForm.ascx.designer.cs">
+      <DependentUpon>LoginForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Login\SignUp.ascx.cs">
+      <DependentUpon>SignUp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Login\SignUp.ascx.designer.cs">
+      <DependentUpon>SignUp.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ReservationManagement\ChangeReservation.ascx.cs">
       <DependentUpon>ChangeReservation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,6 +325,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CloseSession.aspx.cs">
+      <DependentUpon>CloseSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CloseSession.aspx.designer.cs">
+      <DependentUpon>CloseSession.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

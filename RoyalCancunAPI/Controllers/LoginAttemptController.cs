@@ -15,7 +15,7 @@ namespace RoyalCancunAPI.Controllers
             {
                 MySQLController my = new MySQLController();
                 string cadena = "";
-                string date = my.loginAttempt(u.userName, u.pw);
+                cadena = my.loginAttempt(u.userName, u.pw);
 
                 return Ok(cadena);
             }

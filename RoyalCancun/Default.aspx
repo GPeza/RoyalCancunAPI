@@ -2,41 +2,181 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="row" id="wellcomeMessage">
+        <span>Wellcome to the Royal Cancún experience!</span>
     </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
+    <div class="row homeBigMessageContainer">
+        <span class="homeBigMessage">We are your best option in Cancún</span>
+        <hr />
     </div>
+    <div class="row homeBigMessageContainer">
+        <span class="homeBigMessage">Discover the last room in Cancún</span>
+    </div>
+    <div class="slideshow-container">
+        <div class="mySlides">
+          <div class="numbertext">1 / 5</div>
+          <img src="res/imgRoyal/room1.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">2 / 5</div>
+          <img src="res/imgRoyal/room2.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">3 / 5</div>
+          <img src="res/imgRoyal/room3.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">4 / 5</div>
+          <img src="res/imgRoyal/room4.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">5 / 5</div>
+          <img src="res/imgRoyal/room5.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+      <span class="dot" onclick="currentSlide(4)"></span> 
+      <span class="dot" onclick="currentSlide(5)"></span> 
+    </div>
+    <hr />
+    <div class="row homeBigMessageContainer">
+        <span class="homeBigMessage">Check our availability</span>
+    </div>
+    <div id="homeCalendarContainer"></div>
 
+    <script>
+
+        var today = new Date();
+        today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        var ocupiedDates;
+        $(function () {
+            $.ajax({
+                type: 'POST',
+                url: 'ManageReservations.aspx/GetOcupiedDatesNewReservation',
+                data: '{ date: "' + DateToString(today) + '" }',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (response) {
+                    ocupiedDates = response.d.split(',');
+                    SetCallendar();
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+
+        function SetCallendar() {
+            var firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+            var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
+            var lastDay = new Date(today.getFullYear(), today.getMonth(), today.getDate()+30);
+
+
+
+            var calendarHTML = "<table class='homeCalendarTable'><caption>" + GetMonthName(today)+"</caption><tr> <th>Mon</th> <th>Tue</th> <th>Wed</th> <th>Thu</th> <th>Fri</th> <th>Sat</th> <th>Sun</th></tr>";
+            if (firstDay.getDay > 1) {
+                calendarHTML += "<tr>"
+            }
+
+            for (x = 1; x < firstDay.getDay(); x++) {
+                calendarHTML += "<td class='pastDate'></td>";
+            }
+
+            for (var tabDate = firstDay; tabDate < today; tabDate.setDate(tabDate.getDate() + 1)) {
+                if (tabDate.getDay() == 1) {
+                    calendarHTML += "<tr>"
+                }
+                calendarHTML += "<td class='pastDate'>" + tabDate.getDate() + "</td>";
+                if (tabDate.getDay() == 7) {
+                    calendarHTML += "</tr>"
+                }
+            }
+
+            if (today.getDay() == 1) {
+                calendarHTML += "<tr>"
+            }
+            calendarHTML += "<td class='curDate'>" + today.getDate() + "</td>";
+            if (today.getDay() == 7) {
+                calendarHTML += "</tr>"
+            }
+
+            for (var tabDate = tomorrow; tabDate < lastDay; tabDate.setDate(tabDate.getDate() + 1)) {
+                var stringDate = DateToString(tabDate);
+
+                if (tabDate.getDate() == 1) {
+                    calendarHTML += "</table><table class='homeCalendarTable'><caption>" + GetMonthName(tabDate) + "</caption><tr> <th>Mon</th> <th>Tue</th> <th>Wed</th> <th>Thu</th> <th>Fri</th> <th>Sat</th> <th>Sun</th></tr>";
+                    if (tabDate.getDay > 1) {
+                        calendarHTML += "<tr>"
+                    }
+
+                    for (x = 1; x < tabDate.getDay(); x++) {
+                        calendarHTML += "<td class='pastDate'></td>";
+                    }
+                }
+
+                if (tabDate.getDay() == 1) {
+                    calendarHTML += "<tr>"
+                }
+                if (ocupiedDates.indexOf(stringDate) == -1) {
+                    calendarHTML += "<td class='freeDate'>" + tabDate.getDate() + "</td>";
+                } else {
+                    calendarHTML += "<td class='ocupiedDate'>" + tabDate.getDate() + "</td>";
+                }
+                if (tabDate.getDay() == 7) {
+                    calendarHTML += "</tr>"
+                }
+            }
+
+            calendarHTML += "</table>"
+
+            $("#homeCalendarContainer").empty();
+            $("#homeCalendarContainer").append(calendarHTML);
+        }
+
+        function DateToString(date) {
+            var stringDate = date.getFullYear() + "-" + String(date.getMonth() + 1).padStart(2, '0') + "-" + String(date.getDate()).padStart(2, '0');
+            return stringDate;
+        }
+        function GetMonthName(date) {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const d = date
+            return (monthNames[d.getMonth()]);
+        }
+
+
+    </script>
 </asp:Content>

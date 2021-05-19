@@ -12,7 +12,7 @@ namespace RoyalCancunAPI.Controllers
             {
                 MySQLController my = new MySQLController();
                 string cadena = "";
-                string date = my.createUser(u.userName, u.name, u.lastName, u.phone, u.pw);
+                cadena = my.createUser(u.userName, u.name, u.lastName, u.pw);
 
                 return Ok(cadena);
             }

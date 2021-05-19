@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Web.Services;
 using RoyalCancun.Controllers;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace RoyalCancun
@@ -16,10 +10,9 @@ namespace RoyalCancun
         int sessionUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["idUser"] = 1;
             if (Session["idUser"] is null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("~");
             }
             else {
                 sessionUser = Convert.ToInt32(Session["idUser"]) + 1;
