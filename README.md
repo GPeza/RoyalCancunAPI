@@ -67,7 +67,7 @@ Resources:
 * To be able to place a reservation, you'll need to login or register, therefore you can choose the option on the menu.
 * On the login page, you can choose to login to your account or create a new one. [DEMO](https://gpezatest.com/RC_Login.gif)
 * Once logged in you can go to a page on the menu called Reservations.
-* On the Reservations page you can admin your reservations. [DEMO](https://gpezatest.com/RC_Reservations.gif)
+* On the Reservations page you can admin your reservations. [DEMO](https://gpezatest.com/RC_Reservation.gif)
   * To create a reservation:
     * Pick the *Place Reservation* button.
     * A modal window will be displayed.
