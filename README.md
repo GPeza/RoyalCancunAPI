@@ -46,9 +46,9 @@ Resourses:
 * [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville) - Font familly.
 
 ## Tests 📌
-1. To begin the test we will need to load the solution (With the two projects).\
+* To begin the test we will need to load the solution (With the two projects).\
 ![Image](https://gpezatest.com/RC_images/solution1.PNG)\
-2. In order to run them simultaniously, we need to start them manually
+* In order to run them simultaniously, we need to start them manually
 ***IMPORTANT:* The *RoyalCancunAPI* project should be always ran before *RoyalCancun*.**\
 ![Image](https://gpezatest.com/RC_images/solution2.PNG) \
 ***IMPORTANT:* As this is a localhost test, once the project *RoyalCancunAPI* is executed, you'll need to update the port on:**
@@ -59,14 +59,13 @@ Resourses:
   \
 ![Image](https://gpezatest.com/solution3.PNG)
 \
-3. After starting both projects, we will be reviewing *RoyalCancun* project.\
-4. The first page you will found will be the home page.[DEMO](https://gpezatest.com/RC_Home.gif)
+* After starting both projects, we will be reviewing *RoyalCancun* project.
+* The first page you will found will be the home page. [DEMO](https://gpezatest.com/RC_Home.gif).
   * Here you can view the room availavility.
-
-5. To be able to place a reservation, you'll need to login or register, therefor you can choos the option on the menu.
-6. On the login page, you can choose to login to your account or creating a new one.[DEMO](https://gpezatest.com/RC_Login.gif)
-7. Once loged in you can go to a page on the menu called Reservations.
-8. On the Reservations page you can admin your reservations. [DEMO](https://gpezatest.com/RC_Reservations.gif)
+* To be able to place a reservation, you'll need to login or register, therefor you can choos the option on the menu.
+* On the login page, you can choose to login to your account or creating a new one. [DEMO](https://gpezatest.com/RC_Login.gif)
+* Once loged in you can go to a page on the menu called Reservations.
+* On the Reservations page you can admin your reservations. [DEMO](https://gpezatest.com/RC_Reservations.gif)
   * To crean a reservation:
     * Pick the *Place Reservation* button.
     * A modal window will be displayed.
