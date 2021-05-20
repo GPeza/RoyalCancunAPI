@@ -47,10 +47,12 @@ Resources:
 
 ## Tests 📌
 * To begin the test we will need to load the solution (With the two projects).\
-![Image](https://gpezatest.com/RC_images/solution1.PNG)\
+![Image](https://gpezatest.com/solution1.PNG)\
+* Before running the solution you'll need build the solution.\
+![Image](https://gpezatest.com/solution4.PNG)\
 * In order to run them simultaneously, we need to start them manually
 ***IMPORTANT:* The *RoyalCancunAPI* project should be always ran before *RoyalCancun*.**\
-![Image](https://gpezatest.com/RC_images/solution2.PNG) \
+![Image](https://gpezatest.com/solution2.PNG) \
 ***IMPORTANT:* As this is a localhost test, once the project *RoyalCancunAPI* is executed, you'll need to update the port on:**
   * **RoyalCancun/Controllers/APIControllers.cs  line 14 on the instruction**
   ```
