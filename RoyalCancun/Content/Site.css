@@ -93,6 +93,39 @@ body {
     bottom:0;
     width:100%
 }
+#loginTabContainer {
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    width: 600px;
+    border-radius: 10px;
+    z-index: 1050;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loginTabContainer div{
+    background-color: rgba(255,255,255,0.0);
+    border: none;
+}
+
+    #loginTabContainer ul {
+        background-color: rgba(255,255,255,0.0);
+        border: none;
+    }
+
+#loginBackground {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/res/imgRoyal/cancun.png");
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .modalHidden {
     display: none;
 }
@@ -144,7 +177,6 @@ body {
 }
 
 .slideshow-container {
-    max-width: 1000px;
     position: relative;
     margin: auto;
 }
@@ -244,4 +276,8 @@ body {
 }
 .homeCalendarTable tr {
     height: 50px;
+}
+
+.tinyNote {
+        font-size:10px;
 }

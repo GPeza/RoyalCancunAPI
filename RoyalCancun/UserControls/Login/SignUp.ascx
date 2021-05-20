@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SignUp.ascx.cs" Inherits="RoyalCancun.UserControls.Login.SignUp" %>
 <div class="row">
     <div>
-        <div class="centered"><label>Please enter your user data:</label></div>
+        <div class="centered"><label>Please enter your new user data:</label></div>
         <div class="form-group">
             <label>Username:</label>
             <input type="text" name="signup_username" id="signup_username" class="form-control" maxlength="45"/>

@@ -12,6 +12,11 @@
             <input type="hidden" id="idReservationHolder"/>
             <button type="button" class="btn btn-success" id="ChangeReservation_SubmitButton">Change Reservation</button>
         </div>
+        <div class="tinyNote">
+            *Your stay can’t be longer than 3 days.
+            <br />
+            *The room can’t be reserved more than 30 days in advance.
+        </div>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PlaceReservation.ascx.cs" Inherits="RoyalCancun.ReservationManagement.PlaceReservation" %>
 <div class="row">
     <div>
-        <div class="centered"><label>Please selecty the dates for your reservation</label></div>
+        <div class="centered"><label>Please select the dates for your reservation</label></div>
         <div class="form-group">
             <label>From</label>
             <input type="text" name="dateStart" id="newReservation_startDate" autocomplete="off" class="form-control" readonly="readonly"/>
@@ -10,6 +10,11 @@
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-success" id="newReservation_SubmitButton">Place Reservation</button>
+        </div>
+        <div class="tinyNote">
+            *Your stay can’t be longer than 3 days.
+            <br />
+            *The room can’t be reserved more than 30 days in advance.
         </div>
     </div>
 </div>

@@ -5,7 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/jquery-ui.css" rel="stylesheet" />
     <script src="Scripts/jquery-ui.js"></script>
-    <div>
+    <div id="loginBackground">
+    </div>
+    <div id="loginTabContainer">
         <div id="loginTabs">
             <ul>
               <li><a href="#logintab">LOGIN</a></li>

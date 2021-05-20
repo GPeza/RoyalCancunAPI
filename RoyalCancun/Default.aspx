@@ -5,12 +5,14 @@
     <div class="row" id="wellcomeMessage">
         <span>Wellcome to the Royal Cancún experience!</span>
     </div>
+    <br/>
     <div class="row homeBigMessageContainer">
-        <span class="homeBigMessage">We are your best option in Cancún</span>
+        <hr />
+        <span class="homeBigMessage">We are your best option in Cancun</span>
         <hr />
     </div>
     <div class="row homeBigMessageContainer">
-        <span class="homeBigMessage">Discover the last room in Cancún</span>
+        <span class="homeBigMessage">Discover the last room in Cancun</span>
     </div>
     <div class="slideshow-container">
         <div class="mySlides">
@@ -49,6 +51,12 @@
         <span class="homeBigMessage">Check our availability</span>
     </div>
     <div id="homeCalendarContainer"></div>
+    <br />
+    <div class="tinyNote">
+            *Your stay can’t be longer than 3 days.
+            <br />
+            *The room can’t be reserved more than 30 days in advance.
+        </div>
 
     <script>
 
