@@ -17,7 +17,7 @@ This project has been developed as a part of a recruitment process.
 
 ## Getting started🚀
 
-1. In order to test this project you must download it from the repo [Git Page]: https://github.com/GPeza/RoyalCancunAPI
+1. In order to test this project you must download it from the repo [Git Page](https://github.com/GPeza/RoyalCancunAPI)
 2. By downloading this repo, you’ll find a **C#** solution with **two** built in projects:
     * RoyalCancun
     * RoyalCancunAPI\
